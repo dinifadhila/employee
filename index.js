@@ -42,7 +42,11 @@ app.post("api/validatetoken", passport.authenticate("auth", {session : false}), 
     res.send(req.user);
 })
 
+app.get("/", (req,res) =>{
+    res.send ("Ready !!")
+})
+
 app.use("/api/employee", employeeRoutes(passport));
 app.use("/api/user", userRoutes);
 
-app.listen(4000)
+app.listen(proces.env.PORT || 4000)
